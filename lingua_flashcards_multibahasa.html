@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17251f">
+<title>Lingua — Language Flashcards</title>
+<style>
+:root{--bg:#f3f5f1;--panel:#fff;--ink:#17251f;--muted:#68766e;--line:#e1e8e1;--green:#246b50;--green2:#dff1e7;--orange:#c17a36;--red:#b84c4c;--shadow:0 12px 32px #1b302012}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:white;font-weight:650}button:disabled{opacity:.4;cursor:not-allowed}.secondary{background:#edf2ee;color:var(--ink)}.danger{background:#faeaea;color:#a33434}.quiet{background:transparent;color:var(--muted);border:1px solid var(--line)}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:white;color:var(--ink);min-width:0}label{display:block;font-size:13px;font-weight:650;color:var(--muted);margin:0 0 6px}.app{max-width:1200px;margin:auto;padding:22px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.brand{font-weight:850;font-size:22px;letter-spacing:-.8px}.brand span{color:var(--green)}.sub{color:var(--muted);font-size:13px}.view{display:none}.view.active{display:block}.home-hero{padding:30px;border-radius:22px;background:linear-gradient(130deg,#173b2c,#2c7654);color:white;margin-bottom:22px}.home-hero h1{font-size:clamp(27px,5vw,42px);line-height:1.1;margin:0 0 10px}.home-hero p{margin:0;color:#d6e9dc}.lang-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.lang-card,.panel,.stat{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.lang-card{padding:20px;text-align:left;color:var(--ink);display:flex;flex-direction:column;gap:8px}.lang-card:hover{border-color:var(--green);transform:translateY(-2px)}.lang-emoji{font-size:28px}.lang-card strong{font-size:18px}.lang-card small{color:var(--muted);font-weight:400}.workspace{display:grid;grid-template-columns:220px minmax(0,1fr);gap:18px}.sidebar{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;height:max-content;position:sticky;top:16px}.side-head{padding:7px 8px 14px;border-bottom:1px solid var(--line);margin-bottom:10px}.side-head strong{display:block}.nav{display:grid;gap:5px}.nav button{background:transparent;color:var(--muted);text-align:left}.nav button.active,.nav button:hover{background:var(--green2);color:var(--green)}.content{min-width:0}.panel{padding:20px;margin-bottom:16px}.panel h2{margin:0 0 4px;font-size:21px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.muted{color:var(--muted)}.flashcard{min-height:265px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#fff,#f7faf7);padding:28px;cursor:pointer;user-select:none}.face-label{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:750}.face-word{font-size:clamp(25px,5vw,40px);font-weight:800;margin:16px 0;overflow-wrap:anywhere}.face-hint{color:var(--muted);font-size:13px}.controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:14px}.row{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.field{flex:1;min-width:150px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.stat{padding:15px}.stat strong{font-size:25px;display:block}.stat span{font-size:12px;color:var(--muted)}.progress{height:9px;border-radius:20px;background:#e8eee9;overflow:hidden}.progress>i{display:block;height:100%;background:var(--green);width:0}.list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px}.list li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:11px;border:1px solid var(--line);border-radius:11px}.word-main{min-width:0}.word-main strong,.word-main small{display:block;overflow-wrap:anywhere}.word-main small{color:var(--muted)}.tag{font-size:11px;background:#edf3ee;color:#456454;border-radius:20px;padding:4px 8px;white-space:nowrap}.quiz-question{font-size:26px;font-weight:800;text-align:center;margin:24px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answers button{background:#f0f4f0;color:var(--ink);border:1px solid var(--line);text-align:left}.answers button.correct{background:#dff3e5;border-color:#5caa75}.answers button.wrong{background:#fae7e7;border-color:#cf7777}.notice{padding:12px;border-radius:10px;background:#f5f7f4;color:var(--muted);margin-top:12px}.hidden{display:none!important}.section-title{margin:0 0 14px}.small-btn{padding:7px 10px;font-size:13px}.footer-note{font-size:12px;color:var(--muted);margin-top:16px}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}.file-label{display:inline-flex;align-items:center;justify-content:center;background:#edf2ee;color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:650;cursor:pointer}.file-label input{display:none}
+@media(max-width:760px){.app{padding:13px}.workspace{grid-template-columns:1fr}.sidebar{position:static}.nav{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.home-hero{padding:23px}.panel{padding:15px}.answers{grid-template-columns:1fr}.topbar{align-items:flex-start}.topbar .sub{text-align:right}}
+</style></head>
+<body><div class="app">
+<header class="topbar"><div><div class="brand">lingua<span>.</span></div><div class="sub">Ruang belajar kosakata lintas bahasa</div></div><button class="secondary small-btn" id="homeBtn">⌂ Beranda</button></header>
+<section id="homeView" class="view active">
+<div class="home-hero"><h1>Belajar bahasa,<br>selangkah demi selangkah.</h1><p>Pilih bahasa yang ingin kamu pelajari. Progres dan kartu tersimpan di perangkat ini.</p></div>
+<div class="panel"><div class="panel-head"><div><h2>Bahasa saya</h2><div class="muted">Pilih ruang belajar untuk melanjutkan.</div></div></div><div id="languageGrid" class="lang-grid"></div></div>
+<div class="panel"><h2>Tambah bahasa</h2><p class="muted">Buat ruang belajar baru untuk bahasa apa pun.</p><form id="languageForm" class="row"><div class="field"><label for="languageName">Nama bahasa</label><input id="languageName" placeholder="Contoh: English, Korean, French" required maxlength="40"></div><div class="field" style="max-width:130px"><label for="languageEmoji">Ikon (opsional)</label><input id="languageEmoji" placeholder="🌐" maxlength="4"></div><div class="field" style="max-width:150px"><label for="languageSpeech">Kode audio</label><input id="languageSpeech" placeholder="en-US" maxlength="12"></div><button type="submit">+ Tambah</button></form></div>
+</section>
+<section id="studyView" class="view">
+<div class="workspace"><aside class="sidebar"><div class="side-head"><strong id="currentLanguage">Bahasa</strong><span class="sub" id="sidebarCount">0 kosakata</span></div><nav class="nav" id="sideNav"><button data-page="study" class="active">▣ Belajar</button><button data-page="quiz">✦ Mode kuis</button><button data-page="progress">◔ Progres</button><button data-page="manage">☷ Kelola kata</button><button data-page="settings">⚙ Data & pengaturan</button></nav><button class="quiet small-btn" id="switchLanguage" style="width:100%;margin-top:12px">Ganti bahasa</button></aside>
+<main class="content">
+<section id="page-study" class="page">
+<div class="panel"><div class="panel-head"><div><h2>Mode belajar</h2><div class="muted">Ingat arti kata, lalu balik kartu untuk memeriksa.</div></div><span class="tag" id="studyCounter">0 / 0</span></div>
+<div class="row" style="margin-bottom:12px"><div class="field"><label for="studyCategory">Kategori</label><select id="studyCategory"><option value="">Semua kategori</option></select></div><div class="field"><label for="studyDirection">Arah kartu</label><select id="studyDirection"><option value="front">Bahasa Indonesia → Bahasa target</option><option value="back">Bahasa target → Bahasa Indonesia</option></select></div><div class="field"><label for="dueOnly">Jadwal</label><select id="dueOnly"><option value="all">Semua kartu</option><option value="due">Perlu diulang (due)</option></select></div></div>
+<div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="Balik kartu"><span class="face-label" id="faceLabel">BAHASA INDONESIA</span><span class="face-word" id="faceWord">Pilih bahasa</span><span class="face-hint" id="faceHint">Ketuk kartu untuk melihat jawaban</span></div>
+<div class="controls"><button class="secondary" id="prevBtn">← Sebelumnya</button><button id="flipBtn">Lihat jawaban</button><button class="secondary" id="nextBtn">Berikutnya →</button><button class="secondary" id="speakBtn">🔊 Audio</button></div>
+<div id="reviewControls" class="controls hidden"><button class="danger" data-grade="again">Ulangi</button><button class="secondary" data-grade="hard">Sulit</button><button data-grade="good">Ingat</button><button style="background:#397baf" data-grade="easy">Mudah</button></div>
+<div class="footer-note">Tip: gunakan tombol panah kiri/kanan untuk berpindah kartu, spasi untuk membalik.</div></div>
+</section>
+<section id="page-quiz" class="page hidden"><div class="panel"><div class="panel-head"><div><h2>Mode kuis</h2><div class="muted">Pilih arti atau padanan yang benar.</div></div><span class="tag" id="quizScore">Skor: 0</span></div><div class="row"><div class="field"><label for="quizCategory">Kategori kuis</label><select id="quizCategory"><option value="">Semua kategori</option></select></div><div class="field"><label for="quizDirection">Pertanyaan</label><select id="quizDirection"><option value="front">Indonesia → bahasa target</option><option value="back">Bahasa target → Indonesia</option></select></div><button id="startQuiz">Mulai / Acak soal</button></div><div id="quizArea" class="hidden"><div class="quiz-question" id="quizQuestion"></div><div class="answers" id="quizAnswers"></div><div id="quizFeedback" class="notice hidden" aria-live="polite"></div><div class="controls"><button id="nextQuestion" class="hidden">Soal berikutnya →</button></div></div><div id="quizEmpty" class="notice">Tekan “Mulai” untuk membuat soal. Minimal perlu 4 kartu.</div></div></section>
+<section id="page-progress" class="page"><div class="panel"><h2>Progres belajar</h2><p class="muted">Ringkasan penguasaan kosakata untuk bahasa ini.</p><div class="stats"><div class="stat"><strong id="statTotal">0</strong><span>Total kartu</span></div><div class="stat"><strong id="statNew">0</strong><span>Belum dipelajari</span></div><div class="stat"><strong id="statLearning">0</strong><span>Dalam proses</span></div><div class="stat"><strong id="statMastered">0</strong><span>Dikuasai</span></div></div><div class="row" style="justify-content:space-between"><strong>Persentase penguasaan</strong><strong id="masteryPercent">0%</strong></div><div class="progress"><i id="masteryBar"></i></div><h3 style="margin-top:24px">Jadwal pengulangan</h3><div id="dueSummary" class="notice"></div><h3 style="margin-top:24px">Kategori</h3><ul id="categoryProgress" class="list"></ul></div></section>
+<section id="page-manage" class="page"><div class="panel"><h2>Tambah kosakata</h2><p class="muted">Isi kata dalam bahasa Indonesia dan bahasa yang sedang dipelajari.</p><form id="cardForm"><div class="two-col"><div><label for="frontInput">Bahasa Indonesia</label><input id="frontInput" required maxlength="120" placeholder="Contoh: Selamat pagi"></div><div><label for="backInput" id="targetLabel">Bahasa target</label><input id="backInput" required maxlength="160" placeholder="Terjemahan / kosakata"></div></div><div class="row" style="margin-top:12px"><div class="field"><label for="categoryInput">Kategori</label><input id="categoryInput" list="categoryOptions" placeholder="Contoh: Salam"><datalist id="categoryOptions"></datalist></div><div class="field"><label for="exampleInput">Contoh kalimat (opsional)</label><input id="exampleInput" maxlength="220" placeholder="Contoh penggunaan"></div><button type="submit">+ Simpan kata</button></div></form></div><div class="panel"><div class="panel-head"><div><h2>Daftar kosakata</h2><div class="muted"><span id="totalCount">0</span> kartu tersimpan</div></div></div><div class="row"><div class="field"><input id="searchInput" placeholder="Cari kata atau terjemahan..."></div><div class="field"><select id="manageCategory"><option value="">Semua kategori</option></select></div></div><ul class="list" id="wordList"></ul></div></section>
+<section id="page-settings" class="page"><div class="panel"><h2>Impor & ekspor</h2><p class="muted">Buat cadangan data atau pindahkan kosakata ke perangkat lain. Format yang didukung: JSON.</p><div class="row"><button id="exportBtn">↓ Ekspor bahasa ini</button><label class="file-label">↑ Impor JSON<input type="file" id="importFile" accept=".json,application/json"></label></div><div id="dataMessage" class="notice">Ekspor secara berkala agar data tetap aman.</div></div><div class="panel"><h2>Pengaturan ruang bahasa</h2><div class="row"><div class="field"><label for="renameLanguage">Nama bahasa</label><input id="renameLanguage" maxlength="40"></div><button id="renameBtn" class="secondary">Ubah nama</button></div><div class="row" style="margin-top:14px"><button id="resetLanguage" class="danger">Pulihkan kosakata Jepang bawaan</button><button id="deleteLanguage" class="quiet">Hapus ruang bahasa ini</button></div><p class="footer-note">Pemulihan hanya tersedia untuk ruang bahasa Jepang. Tindakan ini mengganti seluruh kartu pada ruang tersebut.</p></div></section>
+</main></div></section>
+</div>
+<script>
+(function(){
+'use strict';
+const STORAGE_KEY='lingua_flashcards_v1';
+const LEGACY_KEY='flashcards_data_v2';
+const DEFAULT_CARDS=[
+        { id: 1, front: 'Mangkuk Nasi', back: '茶碗（ちゃわん） - chawan' },
+        { id: 2, front: 'Piring', back: 'お皿（おさら） - osara' },
+        { id: 3, front: 'Gelas / Cangkir', back: 'コップ - koppu' },
+        { id: 4, front: 'Sumpit', back: '箸（はし） - hashi' },
+        { id: 5, front: 'Sendok', back: 'スプーン - supuun' },
+        { id: 6, front: 'Garpu', back: 'フォーク - fooku' },
+        { id: 7, front: 'Pisau Dapur', back: '包丁（ほうちょう） - houchou' },
+        { id: 8, front: 'Wajan Penggorengan', back: 'フライパン - furaipan' },
+        { id: 9, front: 'Panci', back: '鍋（なべ） - nabe' },
+        { id: 10, front: 'Kulkas / Lemari Es', back: '冷蔵庫（れいぞうこ） - reizouko' },
+        { id: 11, front: 'Microwave', back: '電子レンジ（でんしれんじ） - denshirenji' },
+        { id: 12, front: 'Penanak Nasi', back: '炊飯器（すいはんき） - suihanki' },
+        { id: 13, front: 'Teh Hijau', back: 'お茶（おちゃ） - ocha' },
+        { id: 14, front: 'Air Putih', back: '水（みず） - mizu' },
+        { id: 15, front: 'Susu Sapi', back: '牛乳（ぎゅうにゅう） - gyuunyuu' },
+        { id: 16, front: 'Telur', back: '卵（たまご） - tamago' },
+        { id: 17, front: 'Roti', back: 'パン - pan' },
+        { id: 18, front: 'Daging', back: '肉（にく） - niku' },
+        { id: 19, front: 'Ikan', back: '魚（さかな） - sakana' },
+        { id: 20, front: 'Sayuran', back: '野菜（やさい） - yasai' },
+        { id: 21, front: 'Buah-buahan', back: '果物（くだもの） - kudamono' },
+        { id: 22, front: 'Gula', back: '砂糖（さとう） - satou' },
+        { id: 23, front: 'Garam', back: '塩（しお） - shio' },
+        { id: 24, front: 'Kecap Asin', back: '醤油（しょうゆ） - shouyu' },
+        { id: 25, front: 'Bekal Makanan', back: '弁当（べんとう） - bentou' },
+        { id: 26, front: 'Rumah', back: '家（いえ） - ie' },
+        { id: 27, front: 'Kamar / Ruangan', back: '部屋（へや） - heya' },
+        { id: 28, front: 'Pintu', back: 'ドア / 戸（と） - doa / to' },
+        { id: 29, front: 'Jendela', back: '窓（まど） - mado' },
+        { id: 30, front: 'Meja Tulis', back: '机（つくえ） - tsukue' },
+        { id: 31, front: 'Kursi', back: '椅子（いす） - isu' },
+        { id: 32, front: 'Tempat Tidur', back: 'ベッド - beddo' },
+        { id: 33, front: 'Kasur Busa / Futon', back: '布団（ふとん） - futon' },
+        { id: 34, front: 'Bantal', back: '枕（まくら） - makura' },
+        { id: 35, front: 'Lampu / Listrik', back: '電気（でんき） - denki' },
+        { id: 36, front: 'Kunci', back: '鍵（かぎ） - kagi' },
+        { id: 37, front: 'Cermin', back: '鏡（かがみ） - kagami' },
+        { id: 38, front: 'Jam', back: '時計（とけい） - tokei' },
+        { id: 39, front: 'Payung', back: '傘（かさ） - kasa' },
+        { id: 40, front: 'Sabun Mandi', back: '石鹸（せっけん） - sekken' },
+        { id: 41, front: 'Sikat Gigi', back: '歯ブラシ（はブラシ） - haburashi' },
+        { id: 42, front: 'Pasta Gigi', back: '歯磨き粉（はみがきこ） - hamigakiko' },
+        { id: 43, front: 'Handuk', back: 'タオル - taoru' },
+        { id: 44, front: 'Sampo', back: 'シャンプー - shanpuu' },
+        { id: 45, front: 'Tempat Sampah', back: 'ゴミ箱（ゴミばこ） - gomibako' },
+        { id: 46, front: 'Sapu', back: 'ほうき - houki' },
+        { id: 47, front: 'Buku', back: '本（ほん） - hon' },
+        { id: 48, front: 'Buku Catatan', back: 'ノート - nooto' },
+        { id: 49, front: 'Pensil', back: '鉛筆（えんぴつ） - enpitsu' },
+        { id: 50, front: 'Pulpen', back: 'ボールペン - boorupen' },
+        { id: 51, front: 'Penghapus', back: '消しゴム（けしゴム） - keshigomu' },
+        { id: 52, front: 'Penggaris', back: '定規（じょうぎ） - jougi' },
+        { id: 53, front: 'Gunting', back: '鋏（はさみ） - hasami' },
+        { id: 54, front: 'Kertas', back: '紙（かみ） - kami' },
+        { id: 55, front: 'Kamus', back: '辞書（じしょ） - jisho' },
+        { id: 56, front: 'Tas', back: '鞄（かばん） - kaban' },
+        { id: 57, front: 'Surat', back: '手紙（てがみ） - tegami' },
+        { id: 58, front: 'Amplop', back: '封筒（ふうとう） - fuutou' },
+        { id: 59, front: 'Peta', back: '地図（ちず） - chizu' },
+        { id: 60, front: 'Telepon', back: '電話（でんわ） - denwa' },
+        { id: 61, front: 'Ponsel / HP', back: '携帯電話（けいたいでんわ） - keitaidenwa' },
+        { id: 62, front: 'Smartphone', back: 'スマホ - sumaho' },
+        { id: 63, front: 'Komputer / Laptop', back: 'パソコン - pasokon' },
+        { id: 64, front: 'Televisi', back: 'テレビ - terebi' },
+        { id: 65, front: 'Kamera', back: 'カメラ - kamera' },
+        { id: 66, front: 'Pendingin Ruangan (AC)', back: 'エアコン - eakon' },
+        { id: 67, front: 'Mesin Cuci', back: '洗濯機（せんたくき） - sentakuki' },
+        { id: 68, front: 'Vacuum Cleaner', back: '掃除機（そうじき） - soujiki' },
+        { id: 69, front: 'Baterai', back: '電池（でんち） - denchi' },
+        { id: 70, front: 'Pakaian / Baju', back: '服（ふく） - fuku' },
+        { id: 71, front: 'Kemeja', back: 'シャツ - shatsu' },
+        { id: 72, front: 'Celana Panjang', back: 'ズボン - zubon' },
+        { id: 73, front: 'Rok', back: 'スカート - sukaato' },
+        { id: 74, front: 'Jaket / Luaran', back: '上着（うわぎ） - uwagi' },
+        { id: 75, front: 'Kaos Kaki', back: '靴下（くつした） - kutsushita' },
+        { id: 76, front: 'Sepatu', back: '靴（くつ） - kutsu' },
+        { id: 77, front: 'Topi', back: '帽子（ぼうし） - boushi' },
+        { id: 78, front: 'Kacamata', back: '眼鏡（めがね） - megane' },
+        { id: 79, front: 'Dompet', back: '財布（さいふ） - saifu' },
+        { id: 80, front: 'Stasiun Kereta', back: '駅（えき） - eki' },
+        { id: 81, front: 'Rumah Sakit', back: '病院（びょういん） - byouin' },
+        { id: 82, front: 'Sekolah', back: '学校（がっこう） - gakkou' },
+        { id: 83, front: 'Bank', back: '銀行（ぎんこう） - ginkou' },
+        { id: 84, front: 'Mobil', back: '車（くるま） - kuruma' },
+        { id: 85, front: 'Bus', back: 'バス - basu' },
+        { id: 86, front: 'Kereta Listrik', back: '電車（でんしゃ） - densha' },
+        { id: 87, front: 'Pesawat Terbang', back: '飛行機（ひこうき） - hikouki' },
+        { id: 88, front: 'Sepeda', back: '自転車（じてんしゃ） - jitensha' },
+        { id: 89, front: 'Kepala', back: '頭（あたま） - atama' },
+        { id: 90, front: 'Mata', back: '目（め） - me' },
+        { id: 91, front: 'Tangan', back: '手（て） - te' },
+        { id: 92, front: 'Kaki', back: '足（あし） - ashi' },
+        { id: 93, front: 'Obat', back: '薬（くすり） - kusuri' },
+        { id: 94, front: 'Hujan', back: '雨（あめ） - ame' },
+        { id: 95, front: 'Gunung', back: '山（やま） - yama' },
+        { id: 96, front: 'Uang', back: 'お金（おかね） - okane' },
+        { id: 97, front: 'Yen', back: '円（えん） - en' }
+      ];
+const $=id=>document.getElementById(id);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const today=()=>new Date().toISOString().slice(0,10);
+const safeText=v=>String(v??'');
+let db,activeLang=null,page='study',cards=[],index=0,flipped=false,quiz={score:0,question:null,answered:false};
+function defaultCategory(id){id=Number(id);if(id<=13)return 'Peralatan dapur';if(id<=24)return 'Makanan & minuman';if(id<=39)return 'Rumah';if(id<=46)return 'Kebersihan';if(id<=60)return 'Sekolah & alat tulis';if(id<=69)return 'Teknologi';if(id<=79)return 'Pakaian & aksesori';if(id<=88)return 'Tempat & transportasi';return 'Tubuh & alam';}
+function normaliseCard(c){return {id:String(c.id??uid()),front:safeText(c.front).trim(),back:safeText(c.back).trim(),category:safeText(c.category||defaultCategory(c.id)),example:safeText(c.example||''),reps:Number(c.reps)||0,interval:Number(c.interval)||0,ease:Number(c.ease)||2.5,due:c.due||today(),lastReviewed:c.lastReviewed||null};}
+function loadDB(){
+ try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const x=JSON.parse(raw);if(x&&x.languages&&typeof x.languages==='object')return x;}}catch(e){}
+ let legacy=[];try{legacy=JSON.parse(localStorage.getItem(LEGACY_KEY)||'[]')}catch(e){}
+ const ja=(Array.isArray(legacy)&&legacy.length?legacy:DEFAULT_CARDS).map(normaliseCard);
+ return {version:1,languages:{ja:{name:'日本',label:'Bahasa Jepang',emoji:'🇯🇵',cards:ja}}};
+}
+db=loadDB();
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(db));}catch(e){alert('Penyimpanan gagal. Ruang penyimpanan browser mungkin penuh. Ekspor data sebagai cadangan.');}}
+function lang(){return activeLang?db.languages[activeLang]:null;}
+function allCards(){return lang()?.cards||[];}
+function showView(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));$(id).classList.add('active');}
+function openLanguage(id){if(!db.languages[id])return;activeLang=id;cards=allCards();index=0;showView('studyView');$('currentLanguage').textContent=(lang().emoji||'🌐')+' '+lang().name;$('sidebarCount').textContent=cards.length+' kosakata';$('targetLabel').textContent=lang().label||lang().name; $('renameLanguage').value=lang().name;refreshAll();showPage('study');}
+function renderHome(){const grid=$('languageGrid');grid.innerHTML='';Object.entries(db.languages).forEach(([id,l])=>{const b=document.createElement('button');b.className='lang-card';b.innerHTML='<span class="lang-emoji"></span><strong></strong><small></small>';b.querySelector('.lang-emoji').textContent=l.emoji||'🌐';b.querySelector('strong').textContent=l.name;b.querySelector('small').textContent=l.cards.length+' kosakata · '+(l.label||'Ruang belajar');b.addEventListener('click',()=>openLanguage(id));grid.appendChild(b);});if(!Object.keys(db.languages).length)grid.textContent='Belum ada bahasa. Tambahkan bahasa untuk mulai.';}
+function showPage(p){page=p;document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$('page-'+p).classList.remove('hidden');document.querySelectorAll('#sideNav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));if(p==='progress')renderProgress();if(p==='manage')renderList();if(p==='study')renderStudy();}
+function filteredStudy(){let arr=allCards();const cat=$('studyCategory').value, due=$('dueOnly').value;if(cat)arr=arr.filter(c=>c.category===cat);if(due==='due')arr=arr.filter(c=>c.due<=today());return arr;}
+function updateCategories(){const cats=[...new Set(allCards().map(c=>c.category||'Umum'))].sort();['studyCategory','quizCategory','manageCategory'].forEach(id=>{const el=$(id),v=el.value;el.innerHTML='<option value="">Semua kategori</option>';cats.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;el.appendChild(o);});el.value=cats.includes(v)?v:'';});$('categoryOptions').innerHTML='';cats.forEach(c=>{const o=document.createElement('option');o.value=c;$('categoryOptions').appendChild(o);});}
+function renderStudy(){const arr=filteredStudy();if(index>=arr.length)index=Math.max(0,arr.length-1);const c=arr[index];$('studyCounter').textContent=arr.length?`${index+1} / ${arr.length}`:'0 / 0';$('sidebarCount').textContent=allCards().length+' kosakata';flipped=false;$('flashcard').classList.remove('flipped');$('reviewControls').classList.add('hidden');if(!c){$('faceLabel').textContent='BELUM ADA KARTU';$('faceWord').textContent='Tambahkan kosakata atau ubah filter';$('faceHint').textContent='';$('prevBtn').disabled=$('nextBtn').disabled=$('speakBtn').disabled=true;return;}$('prevBtn').disabled=$('nextBtn').disabled=arr.length<2;$('speakBtn').disabled=false;const reverse=$('studyDirection').value==='back';$('faceLabel').textContent=reverse?(lang().label||lang().name).toUpperCase():'BAHASA INDONESIA';$('faceWord').textContent=reverse?c.back:c.front;$('faceHint').textContent='Ketuk kartu untuk melihat jawaban';$('faceHint').dataset.answer=reverse?c.front:c.back;}
+function flip(){const c=filteredStudy()[index];if(!c)return;flipped=!flipped;$('faceLabel').textContent=flipped?'JAWABAN':($('studyDirection').value==='back'?(lang().label||lang().name).toUpperCase():'BAHASA INDONESIA');$('faceWord').textContent=flipped?$('faceHint').dataset.answer:($('studyDirection').value==='back'?c.back:c.front);$('faceHint').textContent=flipped?(c.example?'Contoh: '+c.example:'Nilai ingatanmu di bawah'):'Ketuk kartu untuk melihat jawaban';$('reviewControls').classList.toggle('hidden',!flipped);}
+function move(n){const arr=filteredStudy();if(!arr.length)return;index=(index+n+arr.length)%arr.length;renderStudy();}
+function review(grade){const c=filteredStudy()[index];if(!c)return;const intervals={again:0,hard:Math.max(1,Math.round((c.interval||1)*1.2)),good:c.reps===0?1:c.reps===1?3:Math.max(1,Math.round((c.interval||1)*c.ease)),easy:c.reps===0?4:Math.max(2,Math.round((c.interval||1)*c.ease*1.3))};if(grade==='again'){c.reps=0;c.interval=0;}else{c.reps++;c.interval=intervals[grade];if(grade==='hard')c.ease=Math.max(1.3,c.ease-.15);if(grade==='easy')c.ease=Math.min(3.2,c.ease+.15);}const d=new Date();d.setDate(d.getDate()+c.interval);c.due=d.toISOString().slice(0,10);c.lastReviewed=today();save();move(1);renderProgress();}
+function speak(){const c=filteredStudy()[index];if(!c)return;if(!('speechSynthesis'in window)){alert('Browser ini belum mendukung audio pelafalan.');return;}const text=$('studyDirection').value==='back'?c.back:c.back;const u=new SpeechSynthesisUtterance(text);u.lang=lang().speech||'ja-JP';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u);}
+function renderList(){const q=$('searchInput').value.toLowerCase().trim(),cat=$('manageCategory').value;const arr=allCards().filter(c=>(!cat||c.category===cat)&&(!q||(c.front+' '+c.back+' '+c.category).toLowerCase().includes(q)));$('totalCount').textContent=allCards().length;const ul=$('wordList');ul.innerHTML='';if(!arr.length){const li=document.createElement('li');li.textContent='Tidak ada kosakata yang cocok.';ul.appendChild(li);return;}arr.forEach(c=>{const li=document.createElement('li'),info=document.createElement('div');info.className='word-main';const a=document.createElement('strong'),b=document.createElement('small');a.textContent=c.front;b.textContent=c.back+' · '+c.category;info.append(a,b);const tag=document.createElement('span');tag.className='tag';tag.textContent=c.due<=today()?'Perlu diulang':'Jadwal: '+c.due;const del=document.createElement('button');del.className='danger small-btn';del.textContent='Hapus';del.addEventListener('click',()=>{if(confirm('Hapus kosakata “'+c.front+'”?')){const i=allCards().findIndex(x=>x.id===c.id);if(i>=0)allCards().splice(i,1);save();refreshAll();}});li.append(info,tag,del);ul.appendChild(li);});}
+function renderProgress(){const a=allCards(),master=a.filter(c=>c.interval>=21).length,learning=a.filter(c=>c.reps>0&&c.interval<21).length,newc=a.length-master-learning,due=a.filter(c=>c.due<=today()).length,pct=a.length?Math.round(master/a.length*100):0;$('statTotal').textContent=a.length;$('statNew').textContent=newc;$('statLearning').textContent=learning;$('statMastered').textContent=master;$('masteryPercent').textContent=pct+'%';$('masteryBar').style.width=pct+'%';$('dueSummary').textContent=due+' kartu perlu diulang hari ini atau sudah melewati jadwal.';const groups={};a.forEach(c=>{groups[c.category]=(groups[c.category]||0)+1;});const ul=$('categoryProgress');ul.innerHTML='';Object.entries(groups).sort().forEach(([k,v])=>{const li=document.createElement('li');li.textContent=k+' — '+v+' kata';ul.appendChild(li);});if(!ul.children.length){const li=document.createElement('li');li.textContent='Belum ada data kategori.';ul.appendChild(li);}}
+function refreshAll(){updateCategories();renderStudy();renderList();renderProgress();}
+function startQuiz(){const cat=$('quizCategory').value;let a=allCards().filter(c=>!cat||c.category===cat);if(a.length<4){$('quizEmpty').textContent='Kuis membutuhkan minimal 4 kartu pada filter yang dipilih.';$('quizEmpty').classList.remove('hidden');$('quizArea').classList.add('hidden');return;}quiz.score=0;quiz.answered=false;$('quizScore').textContent='Skor: 0';$('quizEmpty').classList.add('hidden');$('quizArea').classList.remove('hidden');nextQuiz();}
+function nextQuiz(){let a=allCards().filter(c=>!$('quizCategory').value||c.category===$('quizCategory').value);if(a.length<4)return;const q=a[Math.floor(Math.random()*a.length)],reverse=$('quizDirection').value==='back',answer=reverse?q.front:q.back,others=a.filter(c=>c.id!==q.id).sort(()=>Math.random()-.5).slice(0,3);quiz.question={q,answer,reverse};quiz.answered=false;$('quizQuestion').textContent=reverse?q.back:q.front;$('quizFeedback').classList.add('hidden');$('nextQuestion').classList.add('hidden');const opts=[q,...others].sort(()=>Math.random()-.5);const box=$('quizAnswers');box.innerHTML='';opts.forEach(c=>{const val=reverse?c.front:c.back,b=document.createElement('button');b.textContent=val;b.addEventListener('click',()=>answerQuiz(b,val));box.appendChild(b);});}
+function answerQuiz(btn,val){if(quiz.answered)return;quiz.answered=true;const correct=val===quiz.question.answer;document.querySelectorAll('#quizAnswers button').forEach(b=>{if(b.textContent===quiz.question.answer)b.classList.add('correct');else if(b===btn)b.classList.add('wrong');b.disabled=true;});if(correct)quiz.score++;$('quizScore').textContent='Skor: '+quiz.score;$('quizFeedback').textContent=correct?'Benar! Bagus.':'Belum tepat. Jawaban: '+quiz.question.answer;$('quizFeedback').classList.remove('hidden');$('nextQuestion').classList.remove('hidden');}
+$('homeBtn').addEventListener('click',()=>{showView('homeView');renderHome();});
+$('switchLanguage').addEventListener('click',()=>{showView('homeView');renderHome();});
+$('languageForm').addEventListener('submit',e=>{e.preventDefault();const name=$('languageName').value.trim();if(!name)return;const id='lang_'+uid();db.languages[id]={name,label:'Bahasa '+name,emoji:$('languageEmoji').value.trim()||'🌐',speech:$('languageSpeech').value.trim()||'en-US',cards:[]};save();$('languageName').value='';$('languageEmoji').value='';$('languageSpeech').value='';renderHome();});
+$('sideNav').addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(b)showPage(b.dataset.page);});
+$('flashcard').addEventListener('click',flip);$('flashcard').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}});$('flipBtn').addEventListener('click',flip);$('prevBtn').addEventListener('click',()=>move(-1));$('nextBtn').addEventListener('click',()=>move(1));$('speakBtn').addEventListener('click',speak);$('reviewControls').addEventListener('click',e=>{const b=e.target.closest('[data-grade]');if(b)review(b.dataset.grade);});
+['studyCategory','studyDirection','dueOnly'].forEach(id=>$(id).addEventListener('change',()=>{index=0;renderStudy();}));$('startQuiz').addEventListener('click',startQuiz);$('nextQuestion').addEventListener('click',nextQuiz);
+$('cardForm').addEventListener('submit',e=>{e.preventDefault();const front=$('frontInput').value.trim(),back=$('backInput').value.trim();if(!front||!back)return;allCards().push(normaliseCard({id:uid(),front,back,category:$('categoryInput').value.trim()||'Umum',example:$('exampleInput').value.trim()}));save();e.target.reset();index=allCards().length-1;refreshAll();});
+$('searchInput').addEventListener('input',renderList);$('manageCategory').addEventListener('change',renderList);
+$('exportBtn').addEventListener('click',()=>{const payload={format:'lingua-flashcards',version:1,language:activeLang,languageInfo:lang(),exportedAt:new Date().toISOString(),cards:allCards()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='lingua-'+activeLang+'-backup.json';a.click();URL.revokeObjectURL(url);$('dataMessage').textContent='Ekspor berhasil dibuat. Simpan file JSON ini sebagai cadangan.';});
+$('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text()),incoming=Array.isArray(data)?data:data.cards;if(!Array.isArray(incoming))throw Error('Format JSON tidak dikenali.');const cleaned=incoming.map(normaliseCard).filter(c=>c.front&&c.back);if(!cleaned.length)throw Error('Tidak ada kartu valid dalam file.');if(!confirm('Impor '+cleaned.length+' kartu? Pilih OK untuk menggabungkan tanpa menghapus kartu lama.'))return;const ids=new Set(allCards().map(c=>c.id));cleaned.forEach(c=>{if(ids.has(c.id))c.id=uid();allCards().push(c);});save();refreshAll();$('dataMessage').textContent=cleaned.length+' kartu berhasil diimpor.';}catch(err){$('dataMessage').textContent='Impor gagal: '+err.message;}finally{e.target.value='';}});
+$('renameBtn').addEventListener('click',()=>{const n=$('renameLanguage').value.trim();if(n){lang().name=n;$('currentLanguage').textContent=(lang().emoji||'🌐')+' '+n;save();renderHome();}});
+$('resetLanguage').addEventListener('click',()=>{if(activeLang!=='ja'){alert('Dataset bawaan hanya tersedia untuk bahasa Jepang.');return;}if(confirm('Ganti seluruh kosakata Jepang saat ini dengan dataset bawaan? Ekspor dulu jika ingin menyimpan kartu buatan sendiri.')){lang().cards=DEFAULT_CARDS.map(normaliseCard);index=0;save();refreshAll();}});
+$('deleteLanguage').addEventListener('click',()=>{if(Object.keys(db.languages).length===1){alert('Minimal harus ada satu ruang bahasa.');return;}if(confirm('Hapus ruang bahasa '+lang().name+' beserta semua kartunya?')){delete db.languages[activeLang];activeLang=null;save();renderHome();showView('homeView');}});
+document.addEventListener('keydown',e=>{if(!activeLang||!$('studyView').classList.contains('active'))return;if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1);if(e.key===' '){e.preventDefault();flip();}});
+renderHome();save();
+})();
+</script></body></html>
